@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "tst-db-663a8": {
+      "hosting": {
+        "tst-price": [
+          "tst-db-663a8"
+        ]
+      }
+    }
+  }
+}
