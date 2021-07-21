@@ -23,7 +23,6 @@ export class AppComponent {
 	productCollection: AngularFirestoreCollection<any>;
 	products: Observable<any[]>;
 	products2: Observable<any[]>;
-	products3: Observable<any>;
 	itemValue = '';
 
 	constructor(private readonly afs: AngularFirestore) {
@@ -40,18 +39,6 @@ export class AppComponent {
 					return { id, ...data };
 				})
 			)
-		);
-
-		this.products3 = this.productCollection.stateChanges([ 'modified' ]).pipe(
-			map((actions) => {
-				actions.map((a) => {
-					const data = a.payload.doc.data() as Product;
-					const id = a.payload.doc.id;
-					console.log(data);
-
-					return { id, ...data };
-				});
-			})
 		);
 	}
 
